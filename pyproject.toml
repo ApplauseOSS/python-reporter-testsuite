@@ -1,0 +1,31 @@
+
+[tool.poetry]
+name = "python-reporter-testsuite"
+description = "An example testsuite for all supported Applause Python SDK test runners"
+readme = "README.md"
+version = "1.0.0"
+authors = ["Applause"]
+homepage = "https://github.com/ApplauseOSS/pytest-applause-reporter"
+license = "LICENSE"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.8.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest-applause-reporter = {git = "https://github.com/ApplauseOSS/pytest-applause-reporter", rev = "master"}
+pytest = "^8.3.2"
+ruff = "^0.6.4"
+tox = "^4.18.0"
+selenium = "^4.24.0"
+selene = "2.0.0rc9"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = "src"
+markers = [
+    "applause_test_case_id: mark test as part of applause",
+    "test_rail_test_case_id: mark test as part of test rail"
+]
