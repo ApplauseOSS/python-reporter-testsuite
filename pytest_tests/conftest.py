@@ -70,7 +70,7 @@ def driver(request: pytest.FixtureRequest) -> Generator[Browser, Any, None]: # t
             asset_name="page_source.html",
             asset=bytes(session.driver.page_source, encoding='utf-8'),
             asset_type=AssetType.PAGE_SOURCE,
-            provider_session_guid=driver.driver.session_id
+            provider_session_guid=session.driver.session_id
         )
         for log_type in session.driver.log_types:
             applause_result.attach_asset(
